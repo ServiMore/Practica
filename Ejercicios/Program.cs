@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 
 namespace Ejercicios
 {
@@ -35,6 +33,19 @@ namespace Ejercicios
                 Console.WriteLine("16. Leer número entero y determinar si tiene 3 dígitos.");
                 Console.WriteLine("17. Leer un número entero y determinar si es negativo.");
                 Console.WriteLine("18. Leer dos números enteros de dos dígitos y determinar si la suma de los dos números origina un número par.");
+                Console.WriteLine("19. Resolver la ecuación a*x + b = 0.");
+                Console.WriteLine("20. pregunte al usuario su edad y muestre por pantalla si es mayor de edad o no.");
+                Console.WriteLine("21. que pregunte al usuario su edad y sus ingresos mensuales y muestre por pantalla si el usuario tiene que tributar o no.");
+                Console.WriteLine("22. pregunte al usuario su renta anual y muestre por pantalla el tipo impositivo que le corresponde.");
+                Console.WriteLine("23. pida al usuario una palabra y la muestre por pantalla 10 veces.");
+                Console.WriteLine("24. programa que muestre por pantalla la tabla de multiplicar del 1 al 10.");
+                Console.WriteLine("25. almacenar la cadena de caracteres contraseña en una variable, pregunte al usuario por la contraseña hasta que introduzca la contraseña correcta.");
+                Console.WriteLine("26. programa que pregunte el nombre del usuario en la consola y después de que el usuario lo introduzca muestre por pantalla la cadena ¡Hola <nombre>!");
+                Console.WriteLine("27. Escribir un programa que pregunte el nombre del usuario en la consola y después de que el usuario lo introduzca muestre por pantalla <NOMBRE> tiene <n> letras");
+                Console.WriteLine("28. Escribir un programa que pregunte al usuario por el número de horas trabajadas y el coste por hora. Después debe mostrar por pantalla la paga que le corresponde.");
+                Console.WriteLine("29. programa que pida al usuario su peso (en kg) y estatura (en metros), calcule el índice de masa corporal y lo almacene en una variable, luego mostrarlo");
+                Console.WriteLine("30. Ejercicio # 17 ");
+
 
                 Console.WriteLine("0. salir");
                 opcion = Convert.ToInt32(Console.ReadLine());
@@ -111,6 +122,54 @@ namespace Ejercicios
 
                     case 18:
                         Ejercicio18();
+                        break;
+
+                    case 19:
+                        Ejercicio19();
+                        break;
+
+                    case 20:
+                        Ejercicio20();
+                        break;
+
+                    case 21:
+                        Ejercicio21();
+                        break;
+
+                    case 22:
+                        Ejercicio22();
+                        break;
+                    
+                    case 23:
+                        Ejercicio23();
+                        break;
+
+                    case 24:
+                        Ejercicio24();
+                        break;
+
+                    case 25:
+                        Ejercicio25();
+                        break;
+
+                    case 26:
+                        Ejercicio26();
+                        break;
+
+                    case 27:
+                        Ejercicio27();
+                        break;
+
+                    case 28:
+                        Ejercicio28();
+                        break;
+
+                    case 29:
+                        Ejercicio29();
+                        break;
+                   
+                    case 30:
+                        Ejercicio30();
                         break;
                 }
 
@@ -463,7 +522,7 @@ namespace Ejercicios
             }
 
             Console.ReadKey();
-     
+
         }
 
         private static void Ejercicio17()
@@ -493,7 +552,7 @@ namespace Ejercicios
             int numero2 = Convert.ToInt32(Console.ReadLine());
 
             total = numero1 + numero2;
-            if(numero1 <= 99 && numero1 >= 10)
+            if (numero1 <= 99 && numero1 >= 10)
             {
                 if (numero2 <= 99 && numero2 >= 10)
                 {
@@ -516,7 +575,199 @@ namespace Ejercicios
 
         private static void Ejercicio19()
         {
+            Console.WriteLine("Ingrese A");
+            int a = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Ingrese B");
+            int b = Convert.ToInt32(Console.ReadLine());
+
+            double respuesta = (b * -1) / a;
+            Console.WriteLine("El resultado de AX+B=0 es: " + respuesta);
+        }
+        private static void Ejercicio20()
+        {
+            Console.WriteLine("Ingrese su edad");
+            int edad = Convert.ToInt32(Console.ReadLine());
+
+            if (edad < 18)
+            {
+                Console.WriteLine("usted es menor de edad");
+            }
+            else
+            {
+                Console.WriteLine("usted es mayor de edad");
+            }
+            Console.ReadKey();
+        }
+
+        private static void Ejercicio21()
+        {
+            Console.WriteLine("cual es tu edad?");
+            int edad = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("De cuanto es tu ingreso mensual?");
+            int ingresos = Convert.ToInt32(Console.ReadLine());
+
+            if (edad > 16 && ingresos >= 1000)
+            {
+                Console.WriteLine("tienes que pagar impuestos");
+            }
+            else
+            {
+                Console.WriteLine("no tienes que pagar impuestos");
+            }
+            Console.ReadKey();
+        }
+
+        private static void Ejercicio22()
+        {
+            int impositivo = 0;
+
+            Console.WriteLine("cual es tu renta anual?");
+            int renta = Convert.ToInt32(Console.ReadLine());
+
+            if (renta < 10000)
+            {
+                impositivo = 5;
+            }
+            else if (renta > 10000 && renta < 20000)
+            {
+               impositivo = 15;
+            }
+
+            else if (renta > 20000 && renta < 35000)
+            {
+                impositivo = 20;
+            }
+
+            else if (renta > 35000 && renta < 60000)
+            {
+                impositivo = 30;
+            }
+
+            else
+            {
+                impositivo = 40;
+            }
+
+            Console.WriteLine("tu impositivo es: " + impositivo + "%");
+            Console.ReadKey();
+        }
+
+        private static void Ejercicio23()
+        {
+            Console.WriteLine("ingrese la palabra");
+            string palabra = Convert.ToString(Console.ReadLine());
+
+            for (int i = 0; i < 9; i++)
+            {
+                Console.WriteLine(palabra);
+            }
+            Console.ReadKey();
+        }
+        
+        private static void Ejercicio24()
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                for (int o = 1; o < 11; o++)
+                {
+                    Console.WriteLine(i * o);
+                }
+            }
+            Console.ReadKey();
+        }
+        
+        private static void Ejercicio25()
+        {
+            string clave = "contraseña";
+            string clave2 = "";
+
+            while (clave2 != clave)
+            {
+                Console.WriteLine("ingrese la contraseña");
+                clave2 = Convert.ToString(Console.ReadLine());
+            }
+            Console.WriteLine("la contraseña es correcta");
+            Console.ReadKey();
+        }
+        
+        private static void Ejercicio26()
+        {
+            Console.WriteLine("ingrese su nombre");
+            string nombre = Convert.ToString(Console.ReadLine());
+
+            Console.WriteLine("Hola {0}!", nombre);
+            Console.ReadKey();
+        }
+
+        private static void Ejercicio27()
+        {
+            Console.WriteLine("ingrese su nombre");
+            string nombre = Convert.ToString(Console.ReadLine());
+            int largo = nombre.Length;
+            int contar = 0;
+
+            for (int i = 0; i < largo; i++)
+            {
+               contar += 1;
+            }
+            Console.WriteLine("{0} tiene {1} letras", nombre, contar);
+            Console.ReadKey();
+        }
+
+        private static void Ejercicio28()
+        {
+            Console.WriteLine("ingrese sus horas de trabajo");
+            int horas = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("ingrese el coste por hora");
+            int costo = Convert.ToInt32(Console.ReadLine());
+
+            int pago = horas * costo;
+
+            Console.WriteLine("tu paga es de: {0}$", pago);
+            Console.ReadKey();
+        }
+    
+        private static void Ejercicio29()
+        {
+            Console.WriteLine("ingrese su peso en kg");
+            double peso = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("ingrese estatura en metros");
+            double altura = Convert.ToDouble(Console.ReadLine());
+
+            double masa = Math.Floor(peso) /Math.Floor(altura) * 2.2;
+
+            Console.WriteLine("tu indice de masa corporal es {0}", masa);
+            Console.ReadKey();
+        }
+    
+        private static void Ejercicio30()
+        {
+            Console.WriteLine("ingrese la inversion inicial");
+            double inversion = Convert.ToDouble(Console.ReadLine());
+
+            double interes = 0.04;
+
+            double ahorro1 = Math.Floor(inversion) * (1 + interes);
+            double ahorro2 = Math.Floor(ahorro1) * (1 + interes);
+            double ahorro3 = Math.Floor(ahorro2) * (1 + interes);
+
+            Console.WriteLine("ahorro tras primer año {0}", ahorro1);
+            Console.WriteLine("ahorro tras segundo año {0}", ahorro2);
+            Console.WriteLine("ahorro tras tercer año {0}", ahorro3);
+            Console.ReadKey();
+
+        }
+    
+        private static void Ejercicio31()
+        {
 
         }
     }
 }
+    
+
+ 
