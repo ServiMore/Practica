@@ -183,7 +183,45 @@ namespace Ejercicios4
 
         private static void Ejercicio4()
         {
+            Console.WriteLine("ingrese el sexo del estudiante M o F");
+            string sexo = Console.ReadLine();
 
+            Console.WriteLine("ingrese el nombre");
+            string nombre = Console.ReadLine();
+
+            char letra = nombre.ToLower().ToCharArray()[0];
+           
+            if (sexo.ToLower() == "m")
+            {
+                if (letra > 'n')
+                {
+                    Console.WriteLine("pertenece al grupo A.");
+
+                }
+                else
+                {
+                    Console.WriteLine("pertenece al grupo B.");
+
+                }
+            }
+            else if (sexo.ToLower() == "f")
+            {
+                if (letra < 'm')
+                {
+                    Console.WriteLine("pertenece al grupo A.");
+
+                }
+                else
+                {
+                    Console.WriteLine("pertenece al grupo B.");
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("el sexo ingresado no es valido");
+            }
+            Console.ReadKey();
         }
 
         private static void Ejercicio5()
@@ -224,7 +262,7 @@ namespace Ejercicios4
         private static void Ejercicio6()
         {
             Console.WriteLine("ingrese la palabra");
-            string palabra = Convert.ToString(Console.ReadLine());
+            string palabra = Console.ReadLine();
 
             for (int i = 0; i < 9; i++)
             {
@@ -234,13 +272,35 @@ namespace Ejercicios4
         }
         private static void Ejercicio7()
         {
-                    
+            Console.WriteLine("ingrese el numero");
+            int numero = Convert.ToInt32(Console.ReadLine());
+
+
+            for (int i = 0; i < numero; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    Console.Write(i + ", ");
+                }
+
+            }
+
+            Console.ReadKey();
 
         }
 
         private static void Ejercicio8()
         {
+            Console.WriteLine("ingrese el numero");
+            int numero = Convert.ToInt32(Console.ReadLine());
 
+            while (numero >= 0)
+            {
+                Console.Write(numero + ", ");
+                numero = numero - 1;
+
+            }
+            Console.ReadKey();
         }
 
         private static void Ejercicio9()
@@ -274,7 +334,7 @@ namespace Ejercicios4
             {
                 for (int o = 1; o < 11; o++)
                 {
-                    Console.WriteLine(i * o);
+                    Console.WriteLine($"{i} * {o} = { i * o }");
                 }
             }
             Console.ReadKey();
@@ -296,14 +356,29 @@ namespace Ejercicios4
 
         private static void Ejercicio12()
         {
+            Console.WriteLine("ingrese una frase");
+            string frase = Console.ReadLine().ToLower();
 
+            Console.WriteLine("ingrese la letra");
+            var letra = Console.ReadLine().ToLower().ToCharArray()[0];
+            var contador = 0;
 
+            foreach (var i in frase.ToLower().ToCharArray())
+            {
+                if (letra == i)
+                {
+                    contador += 1;
+                }
+            }
+
+            Console.WriteLine("la letra {0} aparece {1}.", letra, contador);
+            Console.ReadKey();
         }
 
         private static void Ejercicio13()
         {
             Console.WriteLine("ingrese su nombre");
-            string nombre = Convert.ToString(Console.ReadLine());
+            string nombre = Console.ReadLine();
 
             Console.WriteLine("Hola {0}!", nombre);
             Console.ReadKey();
@@ -313,14 +388,9 @@ namespace Ejercicios4
         {
             Console.WriteLine("ingrese su nombre");
             string nombre = Convert.ToString(Console.ReadLine());
+          
             int largo = nombre.Length;
-            int contar = 0;
-
-            for (int i = 0; i < largo; i++)
-            {
-                contar += 1;
-            }
-            Console.WriteLine("{0} tiene {1} letras", nombre, contar);
+            Console.WriteLine("{0} tiene {1} letras", nombre, largo);
             Console.ReadKey();
         }
 
@@ -346,10 +416,10 @@ namespace Ejercicios4
 
             Console.WriteLine("ingrese estatura en metros");
             double altura = Convert.ToDouble(Console.ReadLine());
+            //utilizar math.round
+            double masa = peso / altura * 2.2;
 
-            double masa = Math.Floor(peso) / Math.Floor(altura) * 2.2;
-
-            Console.WriteLine("tu indice de masa corporal es {0}", masa);
+            Console.WriteLine("tu indice de masa corporal es {0}", Math.Round(masa, 2));
             Console.ReadKey();
         }
 
