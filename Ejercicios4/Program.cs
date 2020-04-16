@@ -443,18 +443,55 @@ namespace Ejercicios4
 
         private static void Ejercicio18()
         {
+            Console.WriteLine("ingrese el monto");
+            var monto = Convert.ToDouble(Console.ReadLine());
 
+            Console.WriteLine("ingrese el iva");
+            var ivaPorcentaje = Convert.ToDouble(Console.ReadLine());
+
+            var calculo = monto * (ivaPorcentaje / 100 + 1);
+
+            var iva = monto * (ivaPorcentaje/100);
+
+            Console.WriteLine("El iva es: {0}", iva);
+
+            Console.WriteLine("la cantidad a pagar es: {0}", calculo);
+            Console.ReadKey();
         }
 
         private static void Ejercicio19()
         {
+            var conteo = 0;
+            double numeros = 0;
+            double media;
 
+
+            while (conteo < 10)
+            {
+                Console.WriteLine("ingrese los numeros");
+                numeros += Convert.ToDouble(Console.ReadLine());
+                conteo += 1;
+            }
+
+            media = numeros / conteo;
+
+            Console.WriteLine("la media de los numeros es : {0}", media);
+            Console.ReadKey();
         }
 
         private static void Ejercicio20()
         {
-
-        }
+            //con una coleccion, recorrerlas y si la posicion es multiplo de 3 no  hay que imprimirlo 
+            string[] abc = new[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+            for (int i = 0; i < abc.Length; i++)
+            {
+                if ((i +1) % 3 !=0)
+                {
+                Console.WriteLine(abc[i]);
+                }
+            }
+            Console.ReadKey();
+            }
     }
 }
 
