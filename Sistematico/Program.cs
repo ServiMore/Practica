@@ -10,24 +10,76 @@ namespace Sistematico
     {
         static void Main(string[] args)
         {
-            //calcualr el precio usuario tiene que indicar el ancho y el largo en cm, calcular cual es el precio final asumiendo que el precio es de 8 cordobas por cm2.
-            Console.WriteLine("Ingrese el largo que desea tener la pintura en centimetros");
-            double largo = Convert.ToDouble(Console.ReadLine());
+            //pedirle la cantidad de nombres que quiere.
+            //hacer un programa que pida al usuario 5 nombres, y despues imprimir el nombre mas largo de todos.
 
-            Console.WriteLine("Ingrese el ancho que desea tener la pintura  en centimetros");
-            double ancho = Convert.ToDouble(Console.ReadLine());
+            var masLargo = "";
+            Console.WriteLine("cuantos nombres desea imprimir?");
+            int cantidad = Convert.ToInt32(Console.ReadLine());
 
+            for (int i = 0; i < cantidad ; i++)
+            {
+                Console.WriteLine("Ingrese los nombres");
+                var nuevoNombre = Console.ReadLine();
+                if (nuevoNombre.Length > masLargo.Length)
+                {
+                    masLargo = nuevoNombre;
+                }
 
-            double precioFinal = largo * ancho * 8 ;
+            }
 
-            Console.WriteLine("El precio de la pintura es: {0}", precioFinal);
+            Console.WriteLine("El nombres mas largo es: {0}", masLargo);
             Console.ReadKey();
 
+            /*
+            Console.WriteLine("Ingrese el primer nombre");
+            string nombre1 = Console.ReadLine();
+           
+            Console.WriteLine("Ingrese el segundo nombre");
+            string nombre2 = Console.ReadLine();
+
+            Console.WriteLine("Ingrese el tercero nombre");
+            string nombre3 = Console.ReadLine();
+
+            Console.WriteLine("Ingrese el cuarto nombre");
+            string nombre4 = Console.ReadLine();
+
+            Console.WriteLine("Ingrese el quinto nombre");
+            string nombre5 = Console.ReadLine();
+
+
+            if (nombre1.Length > nombre2.Length && nombre1.Length > nombre3.Length && nombre1.Length > nombre4.Length && nombre1.Length > nombre5.Length)
+            {
+                Console.WriteLine("El nombre mas largo es: {0}", nombre1);
+            }
+            else if (nombre2.Length > nombre1.Length && nombre2.Length > nombre3.Length && nombre2.Length > nombre4.Length && nombre2.Length > nombre5.Length)
+            {
+                Console.WriteLine("El nombre mas largo es: {0}", nombre2);
+
+            }
+            else if (nombre3.Length > nombre1.Length && nombre3.Length > nombre2.Length && nombre3.Length > nombre4.Length && nombre3.Length > nombre5.Length)
+            {
+                Console.WriteLine("El nombre mas largo es: {0}", nombre3);
+
+            }
+            else if (nombre4.Length > nombre1.Length && nombre4.Length > nombre2.Length && nombre4.Length > nombre3.Length && nombre4.Length > nombre5.Length)
+            {
+                Console.WriteLine("El nombre mas largo es: {0}", nombre4);
+
+            }
+
+            else
+            {
+                Console.WriteLine("El nombres mas largo es: {0}", nombre5);
+            }
+            Console.ReadKey();
+            */
 
         }
-       
-        private static void PrecioPintura() 
+
+        private static void Ejercicio3() 
         {
+
             //el usuario va a poner la medida xs(muy pequeno) s(pequeno) m(medio) l(largo) xl(muy largo), 10xs, 20s, 30m, 40l, 50xl. va a poner cuantas pinturas quiere, mostrar el precio final, luego preguntar si dare descuento. tiene que ingresar el descuento y volver a calcular el resultado.
 
             int xs = 10;
@@ -41,12 +93,12 @@ namespace Sistematico
 
             Console.WriteLine("Cuantas pinturas de ese tipo desea?");
             int cantidad = Convert.ToInt32(Console.ReadLine());
-            double precioFinal= 0;
+            double precioFinal = 0;
 
             if (tipo == 1)
             {
                 precioFinal = xs * cantidad;
-            
+
             }
 
             else if (tipo == 2)
@@ -80,29 +132,9 @@ namespace Sistematico
             if (respuesta == 1)
             {
                 Console.WriteLine("De cuanto es el descuento que desea? 1-25%  2-50%  3-75% ");
-                double descuento = Convert.ToDouble(Console.ReadLine());
+                double descuento = Convert.ToDouble(Console.ReadLine()); //total = 100*(1 + 0.18) //diviridilo entre 100 multiplicarlo por el monto original y al precio final restarselo al monto original
 
-                if (descuento == 1)
-                {
-                    descuento = 0.25;
-                }
-
-                else if(descuento == 2)
-                {
-                    descuento = 0.50;
-                }
-
-                else if (descuento == 3)
-                {
-                    descuento = 0.75;
-                }
-
-                else
-                {
-                    Console.WriteLine("seleccione un descuento");
-                }
-
-                descuento = Convert.ToDouble(descuento * precioFinal);
+                descuento = Convert.ToDouble(descuento / 100 * precioFinal);
                 precioFinal = precioFinal - descuento;
 
                 Console.WriteLine("El precio de la pintura con descuento aplicado es de: {0}", precioFinal);
@@ -112,10 +144,26 @@ namespace Sistematico
             {
                 Console.WriteLine("El precio de la pintura es: {0}", precioFinal);
             }
-           
 
-
+            Console.ReadKey();
         }
+
+        private static void Ejercicio()
+        {
+            //calcualr el precio usuario tiene que indicar el ancho y el largo en cm, calcular cual es el precio final asumiendo que el precio es de 8 cordobas por cm2.
+            Console.WriteLine("Ingrese el largo que desea tener la pintura en centimetros");
+            double largo = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Ingrese el ancho que desea tener la pintura  en centimetros");
+            double ancho = Convert.ToDouble(Console.ReadLine());
+
+
+            double precioFinal = largo * ancho * 8;
+
+            Console.WriteLine("El precio de la pintura es: {0}", precioFinal);
+            Console.ReadKey();
+        }
+
 
     }
 }
