@@ -10,6 +10,93 @@ namespace Sistematico
     {
         static void Main(string[] args)
         {
+            int opcion = 0;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("1. crear nuevo personaje");
+                Console.WriteLine("2. ver personajes creados");
+                Console.WriteLine("3. cambiar nombre");
+                Console.WriteLine("4. borrar un personaje");
+                Console.WriteLine("0. salir");
+                Console.WriteLine("\n");
+
+
+                switch (opcion)
+                {
+                    case 1:
+                        crearPersonaje();
+                        break;
+
+                    case 2:
+                        verPersonajes();
+                        break;
+
+                    case 3:
+                        cambiarNombre();
+                        break;
+
+                    case 4:
+                        borrarPersonaje();
+                        break;
+                }
+
+            } while (opcion != 0);
+
+
+        }
+
+       public static void crearPersonaje()
+        {
+            List<string> nombres = new List<string>();
+            Console.WriteLine("ingrese el nombre del personaje");
+            nombres[0] = Console.ReadLine();
+
+        }
+
+
+        public static void verPersonajes()
+        {
+            Console.WriteLine(nombres);
+
+        }
+
+        private static void cambiarNombre()
+        {
+            Console.WriteLine("seleccione el personaje");
+            int opcion = Convert.ToInt32(Console.ReadLine());
+            verPersonajes();
+
+            if (opcion == 0)
+            {
+                nombres[0] = Console.ReadLine();
+            }
+
+        }
+        private static void borrarPersonaje()
+        {
+            while (nombres >= 1) 
+            {
+                Console.WriteLine("seleccione el personaje");
+
+            } 
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private static void Ejercicio4() {
             //pedirle la cantidad de nombres que quiere.
             //hacer un programa que pida al usuario 5 nombres, y despues imprimir el nombre mas largo de todos.
 
@@ -17,7 +104,7 @@ namespace Sistematico
             Console.WriteLine("cuantos nombres desea imprimir?");
             int cantidad = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = 0; i < cantidad ; i++)
+            for (int i = 0; i < cantidad; i++)
             {
                 Console.WriteLine("Ingrese los nombres");
                 var nuevoNombre = Console.ReadLine();
@@ -75,8 +162,8 @@ namespace Sistematico
             Console.ReadKey();
             */
 
-        }
 
+        }
         private static void Ejercicio3() 
         {
 
