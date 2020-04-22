@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace Sistematico
 {
     class Program
     {
+      static List<string> nombres = new List<string>();
+
         static void Main(string[] args)
         {
             int opcion = 0;
@@ -21,6 +24,7 @@ namespace Sistematico
                 Console.WriteLine("4. borrar un personaje");
                 Console.WriteLine("0. salir");
                 Console.WriteLine("\n");
+                opcion = Convert.ToInt32(Console.ReadLine());
 
 
                 switch (opcion)
@@ -49,38 +53,58 @@ namespace Sistematico
 
        public static void crearPersonaje()
         {
-            List<string> nombres = new List<string>();
-            Console.WriteLine("ingrese el nombre del personaje");
-            nombres[0] = Console.ReadLine();
-
+            Console.Clear();
+            if (nombres.Count >= 5)
+            {
+                Console.WriteLine("Solo puedes tener 5 personajes :).");
+            }
+            else {
+                Console.WriteLine("ingrese el nombre del personaje");
+                var respuesta = Console.ReadLine();
+                nombres.Add(respuesta);
+            }
+            Console.ReadKey();
         }
 
 
         public static void verPersonajes()
         {
-            Console.WriteLine(nombres);
-
+            Console.Clear();
+            if (nombres.Count == 0)
+            {
+                Console.WriteLine("Aun no tienes personajes creados");
+            }
+            
+            Console.WriteLine("\n Esta es tu lista de personajes \n");
+            for (int i = 0; i < nombres.Count; i++)
+            {
+                Console.WriteLine(nombres[i]);
+            }
+            Console.ReadKey();
         }
-
         private static void cambiarNombre()
         {
-            Console.WriteLine("seleccione el personaje");
-            int opcion = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
             verPersonajes();
+            Console.WriteLine("\nseleccione el personaje");
+            int opcion = Convert.ToInt32(Console.ReadLine())-1; 
+            
+            Console.WriteLine("\ningrese el nuevo nombre");
+            string nuevoNombre = Console.ReadLine();
 
-            if (opcion == 0)
-            {
-                nombres[0] = Console.ReadLine();
-            }
+            nombres[opcion] = nuevoNombre;
 
+            Console.ReadKey();
         }
         private static void borrarPersonaje()
         {
-            while (nombres >= 1) 
-            {
-                Console.WriteLine("seleccione el personaje");
+            Console.Clear();
+            verPersonajes();
+            Console.WriteLine("\nseleccione el personaje");
+            int opcion = Convert.ToInt32(Console.ReadLine());
 
-            } 
+            nombres.RemoveAt(opcion);
+            Console.ReadKey();
         }
 
 
