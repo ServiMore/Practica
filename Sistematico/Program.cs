@@ -9,9 +9,38 @@ namespace Sistematico
 {
     class Program
     {
-      static List<string> nombres = new List<string>();
+        static List<string> nombres = new List<string>();
 
         static void Main(string[] args)
+        { //1ra pedir al usuario que meta 5 salarios y calcular promedio de salario.
+          //primero preguntar cuantos salarios va a querer.
+          //pedir al usuario de entrada un salario y seguirle pidiendo hasta que el salario promedio sea mayor que mil.
+          //and now en lugar de imprimir solo el promedio final quiero imprimir todos los salarios que el usuario ingreso mas el promedio
+            double promedio = 0;
+            int conteo = 0;
+            double salarios = 0;
+            List<double> numeros = new List<double>();
+            double n = 0;
+            do
+            {
+                Console.WriteLine("ingrese un salario");
+                n = Convert.ToDouble(Console.ReadLine());
+                salarios += n; 
+                numeros.Add(n);
+                conteo += 1;
+                promedio = salarios / conteo;
+            } while (promedio < 1000);
+
+            Console.WriteLine("Estos son los salarios:");
+            for (int i = 0; i < numeros.Count; i++)
+            {
+                Console.WriteLine(numeros[i]);
+            }
+            Console.WriteLine("El promedio es: {0}", promedio);
+            Console.ReadKey();
+        }
+
+        private static void EjercicioPersonaje()
         {
             int opcion = 0;
 
@@ -47,18 +76,19 @@ namespace Sistematico
                 }
 
             } while (opcion != 0);
-
-
         }
 
-       public static void crearPersonaje()
+
+
+        public static void crearPersonaje()
         {
             Console.Clear();
             if (nombres.Count >= 5)
             {
                 Console.WriteLine("Solo puedes tener 5 personajes :).");
             }
-            else {
+            else
+            {
                 Console.WriteLine("ingrese el nombre del personaje");
                 var respuesta = Console.ReadLine();
                 nombres.Add(respuesta);
@@ -74,7 +104,7 @@ namespace Sistematico
             {
                 Console.WriteLine("Aun no tienes personajes creados");
             }
-            
+
             Console.WriteLine("\n Esta es tu lista de personajes \n");
             for (int i = 0; i < nombres.Count; i++)
             {
@@ -87,8 +117,8 @@ namespace Sistematico
             Console.Clear();
             verPersonajes();
             Console.WriteLine("\nseleccione el personaje");
-            int opcion = Convert.ToInt32(Console.ReadLine())-1; 
-            
+            int opcion = Convert.ToInt32(Console.ReadLine()) - 1;
+
             Console.WriteLine("\ningrese el nuevo nombre");
             string nuevoNombre = Console.ReadLine();
 
@@ -102,7 +132,6 @@ namespace Sistematico
             verPersonajes();
             Console.WriteLine("\nseleccione el personaje");
             int opcion = Convert.ToInt32(Console.ReadLine());
-
             nombres.RemoveAt(opcion);
             Console.ReadKey();
         }
@@ -120,7 +149,8 @@ namespace Sistematico
 
 
 
-        private static void Ejercicio4() {
+        private static void Ejercicio4()
+        {
             //pedirle la cantidad de nombres que quiere.
             //hacer un programa que pida al usuario 5 nombres, y despues imprimir el nombre mas largo de todos.
 
@@ -188,7 +218,7 @@ namespace Sistematico
 
 
         }
-        private static void Ejercicio3() 
+        private static void Ejercicio3()
         {
 
             //el usuario va a poner la medida xs(muy pequeno) s(pequeno) m(medio) l(largo) xl(muy largo), 10xs, 20s, 30m, 40l, 50xl. va a poner cuantas pinturas quiere, mostrar el precio final, luego preguntar si dare descuento. tiene que ingresar el descuento y volver a calcular el resultado.
